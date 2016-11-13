@@ -13,12 +13,13 @@ class HomeVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUI();
-        
-       
-        
-        
+    
     }
 
+    var contextView : PageContentView?
+    var titleView : PageTitleView?
+    
+    
 
     func setUI()  {
         let  logoBtn = UIButton.creat(imageName: "logo", heightImageName: "", size: CGSize.init(width: 60, height: 44), target: self, action: #selector(self.logoRefsh));
@@ -42,11 +43,32 @@ class HomeVC: BaseViewController {
         naviView.addSubview(codeBtn);
         naviView.addSubview(searchBtn);
         
+        titleView = PageTitleView.init(frame: CGRect.init(x: 0, y: 64, width: SCR_W, height: 40), isScroEnable: false, titles: ["推荐","游戏","娱乐","手游","趣玩"]);
+        titleView?.setUpUI();
+        self.view.addSubview(titleView!);
+        
+        var childsArry = [UIViewController]();
+        for _ in 0..<5 {
+            let vc = UIViewController();
+            vc.view.backgroundColor = UIColor.init(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1);
+            
+            childsArry.append(vc);
+            
+        }
+        
+        
+        
+        
+        contextView = PageContentView.init(frame: CGRect.init(x: 0, y: (titleView?.frame.maxY)!, width: SCR_W, height: SCR_H-(titleView?.frame.maxY)!), childVcs: childsArry, presentViewController: self);
+        contextView?.setUpUi();
+        self.view.addSubview(contextView!);
+        titleView?.delegate = contextView;
+        
+        contextView?.delegate = titleView;
         
     }
     
-
-    
+  
     
     
     func logoRefsh() {

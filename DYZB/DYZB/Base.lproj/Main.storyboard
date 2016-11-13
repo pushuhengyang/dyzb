@@ -34,7 +34,9 @@
         <scene sceneID="WmB-l4-iLP">
             <objects>
                 <navigationController id="hHQ-JD-DtP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" image="tabMine" selectedImage="tabMineHL" id="Oj8-cJ-NJN"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="tabMine" selectedImage="tabMineHL" id="Oj8-cJ-NJN">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lb9-NE-WAM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -70,7 +72,9 @@
         <scene sceneID="AmQ-Ov-LHe">
             <objects>
                 <navigationController id="rpp-ce-1nq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="关注" image="tabFocus" selectedImage="tabFocusHL" id="EJZ-wu-cau"/>
+                    <tabBarItem key="tabBarItem" title="关注" image="tabFocus" selectedImage="tabFocusHL" id="EJZ-wu-cau">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZFc-AA-h3t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -106,7 +110,9 @@
         <scene sceneID="tIl-Hf-dLF">
             <objects>
                 <navigationController id="18N-uK-cqq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="视频" image="tabVideo" selectedImage="tabVideoHL" id="BU8-Dc-D4P"/>
+                    <tabBarItem key="tabBarItem" title="视频" image="tabVideo" selectedImage="tabVideoHL" id="BU8-Dc-D4P">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gJP-lE-CH3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -142,7 +148,9 @@
         <scene sceneID="nZc-ie-ZQC">
             <objects>
                 <navigationController id="pJE-ax-gFD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="直播" image="tabLiving" selectedImage="tabLivingHL" id="bdp-yW-ire"/>
+                    <tabBarItem key="tabBarItem" title="直播" image="tabLiving" selectedImage="tabLivingHL" id="bdp-yW-ire">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UMO-8m-7ZW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -178,7 +186,9 @@
         <scene sceneID="8yG-n1-XdH">
             <objects>
                 <navigationController id="Ew2-0L-W0c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="首页" image="tabHome" selectedImage="tabHomeHL" id="3r7-6y-vAo"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="tabHome" selectedImage="tabHomeHL" id="3r7-6y-vAo">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gew-5F-yw5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
