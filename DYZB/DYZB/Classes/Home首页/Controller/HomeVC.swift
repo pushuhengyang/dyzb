@@ -63,7 +63,6 @@ class HomeVC: BaseViewController {
         contextView?.setUpUi();
         self.view.addSubview(contextView!);
         titleView?.delegate = contextView;
-        
         contextView?.delegate = titleView;
         
     }
