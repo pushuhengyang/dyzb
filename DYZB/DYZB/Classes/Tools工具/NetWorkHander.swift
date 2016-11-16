@@ -25,7 +25,7 @@ extension NetWorkHander {
     
    
 
-    class func requestData (type: MethodType , urlString : String , parment : [String : AnyObject] , finishedCallBack : @escaping (_ result : AnyObject) ->()){
+    class func requestData (type: MethodType , urlString : String , parment : [String : AnyObject]? , finishedCallBack : @escaping (_ result : AnyObject) ->()){
       
     
         

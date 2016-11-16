@@ -48,11 +48,20 @@ class HomeVC: BaseViewController {
         self.view.addSubview(titleView!);
         
         var childsArry = [UIViewController]();
-        for _ in 0..<5 {
-            let vc = HomeContextViewController();
-            //vc.view.backgroundColor = UIColor.clear
+        for index in 0..<5 {
+            if index == 0{
             
-            childsArry.append(vc);
+            let vc = HomeContextViewController();
+            
+                childsArry.append(vc)
+            }else{
+                let vc = UIViewController()
+                
+                vc.view.backgroundColor = UIColor.init(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1)
+                
+            childsArry.append(vc)
+                
+            }
             
         }
         

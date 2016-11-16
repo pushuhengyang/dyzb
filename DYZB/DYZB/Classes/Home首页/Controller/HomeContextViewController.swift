@@ -16,9 +16,7 @@ class HomeContextViewController: UIViewController ,UICollectionViewDataSource,UI
 
     let kItemMargin : CGFloat = 10;
     let kItemW : CGFloat = (SCR_W - 3 * 10) / 2
-    
-    
-    
+    let kTrunH : CGFloat = 150
     private lazy var collectionV : UICollectionView = { [unowned self] in
     
         let layout = UICollectionViewFlowLayout.init();
@@ -31,7 +29,8 @@ class HomeContextViewController: UIViewController ,UICollectionViewDataSource,UI
     
         let collectionV = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: SCR_W, height: SCR_H - 64  - 40), collectionViewLayout: layout)
       
-        collectionV.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 49, right: 0)
+        collectionV.addSubview(self.turnPicView)
+        collectionV.contentInset = UIEdgeInsets.init(top: self.kTrunH, left: 0, bottom: 49, right: 0)
         collectionV.register(UINib.init(nibName: "HomeCollectItem", bundle: nil), forCellWithReuseIdentifier: "HomeCollectItem")
         
         collectionV.register(UINib.init(nibName: "CollectHeadView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "CollectHeadView")
@@ -45,6 +44,14 @@ class HomeContextViewController: UIViewController ,UICollectionViewDataSource,UI
     
     }()
     
+    private lazy var turnPicView : DYTurnPictureView = {
+        let turnPicView = DYTurnPictureView.dyTurnView();
+        turnPicView.frame = CGRect.init(x: 0, y: -self.kTrunH, width: SCR_W, height: self.kTrunH)
+        
+        
+        return turnPicView
+    }()
+    
     
     
     override func viewDidLoad() {
@@ -53,6 +60,7 @@ class HomeContextViewController: UIViewController ,UICollectionViewDataSource,UI
         //获取数据
         
         self.getData();
+    
         
     }
     
@@ -67,11 +75,12 @@ class HomeContextViewController: UIViewController ,UICollectionViewDataSource,UI
             
         }
         
-        
-        
-        
-    
-    
+        recom.getTurnData {
+            
+            self.turnPicView.reReshLoadData(dataArry: self.recom.turnModels);
+            
+        }
+
     }
     
     
@@ -150,13 +159,11 @@ class HomeContextViewController: UIViewController ,UICollectionViewDataSource,UI
         
         let model : AnchorModel = grop.archArry[indexPath.item]
         
-        cell.imageV.kf.setImage(with:URL.init(string: model.room_src!) , placeholder: UIImage.init(named: "live_cell_default_phone"), options: nil, progressBlock: nil, completionHandler: nil);
+        cell.imageV.kf.setImage(with:URL.init(string: model.room_src) , placeholder: UIImage.init(named: "live_cell_default_phone"), options: nil, progressBlock: nil, completionHandler: nil);
         cell.countLb.text = "\(model.online!.intValue)"
         cell.titleLb.text = "\(model.room_name)"
         return cell;
-        
-        
-        
+   
     }
 
 

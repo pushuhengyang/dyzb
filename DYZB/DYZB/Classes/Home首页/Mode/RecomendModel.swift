@@ -12,13 +12,12 @@ class RecomendModel: NSObject {
     lazy var anchorGroups = [AnchorGroup]()
      lazy var hotAnchorGroup = AnchorGroup();
      lazy var prettyAnchorGroup = AnchorGroup();
-    
+     lazy var turnModels = [DYTurnPicModel]()
     
 }
 
 extension RecomendModel {
     func requestData(recomendData : @escaping ()->())  {
-        
         
     //处理数据闭包
         func parserData(result : AnyObject) -> [[String : NSObject]]? {
@@ -122,7 +121,7 @@ extension RecomendModel {
                 
         })
         
-       
+      
     
     
     }
@@ -139,8 +138,29 @@ extension NSDate {
 }
 
 
-
-
+//获取轮播图数据
+extension RecomendModel {
+    func getTurnData(finishedCallBack : @escaping () -> ())  {
+        NetWorkHander.requestData(type: .GET, urlString: "http://www.douyutv.com/api/v1/slide/6?version=2.401", parment: nil, finishedCallBack:{ [weak self] request in
+            guard request is [String : AnyObject] else{return}
+        
+            guard let dataArry = request["data"] as? [[String : NSObject]]else{return}
+            
+            for dict in dataArry{
+                let turnModel = DYTurnPicModel.init(dict: dict)
+                 self?.turnModels.append(turnModel)
+            }
+    
+            finishedCallBack();
+            
+            
+        })
+    
+    
+    }
+    
+    
+}
 
 
 
